@@ -1,5 +1,10 @@
 body {
     margin:0;
+    color: black;
+    font-family: 'Times New Roman', Times, serif;
+    font-weight: bold;
+    font-style: normal;
+    font-size: 60px;
 }
 /*header {
     color: black;
@@ -8,10 +13,10 @@ body {
     font-style: normal;
     font-size: 60px;
 }*/
-h2 {
+/*h2 {
     color: black;
     font-family: 'Times New Roman', Times, serif;
-}
+}*/
 .forma {
     max-width: 960px;
     margin: auto;
@@ -19,4 +24,8 @@ h2 {
     padding: 20px;
     margin-bottom: 20px;
     margin-top: 20px;
+}
+#data {
+    font-weigth: normal;
+    font-size: 30px;
 }
