@@ -6,29 +6,29 @@
         <link rel="stylesheet" href="style.css">
     </head>
 <body>
-     <form class="forma" method="POST">
+    <form class="forma" method="POST">
     <label><br>
         Имя:<br>
-        <input name="name" placeholder="Введите Ваше имя">
+        <input id="data" name="name" placeholder="Введите Ваше имя">
     </label><br>
     <label>
         Email:<br>
-        <input name="email" type="email" placeholder="Введите вашу почту">
+        <input id="data" name="email" type="email" placeholder="Введите вашу почту">
     </label><br>
     <label>
         Дата рождения:<br>
-        <input name="birthDate" type="date">
+        <input id="data" name="birthDate" type="date">
     </label><br>
     Пол:<br>
-      <label><input type="radio" checked="checked" name="sex"> Ж </label>
-      <label><input type="radio" name="sex"> М</label><br />
+      <label><input id="data" type="radio" checked="checked" name="sex"> Ж </label>
+      <label><input id="data" type="radio" name="sex"> М</label><br />
     Количество конечностей:<br />
-      <label><input type="radio" checked="checked" name="limb"> 2 </label>
-      <label><input type="radio" name="limb"> 3 </label>
-      <label><input type="radio" name="limb"> 4 </label><br>
+      <label><input id="data" type="radio" checked="checked" name="limb"> 2 </label>
+      <label><input id="data" type="radio" name="limb"> 3 </label>
+      <label><input id="data" type="radio" name="limb"> 4 </label><br>
     <label>
         Сверхспособности:<br>
-        <select name="superpowers" multiple="multiple">
+        <select id="data" name="superpowers" multiple="multiple">
           <option disabled>Выберите сверхспособность:</option>
           <option value="Значение1">Бессмертие</option>
           <option value="Значение2">Прохождение сквозь стены</option>
@@ -37,10 +37,10 @@
     </label><br>
     <label>
         Биография:<br />
-        <textarea name="biography" placeholder="Введите текст"></textarea>
+        <textarea id="data" name="biography" placeholder="Введите текст"></textarea>
     </label><br>
-    <label><input type="checkbox" checked="checked" name="check">С контрактом ознакомлен(а)</label><br>
-    <input type="submit" value="Отправить">
+    <label><input id="data" type="checkbox" checked="checked" name="check">С контрактом ознакомлен(а)</label><br>
+    <input id="data" type="submit" value="Отправить">
   </form>
   </body>
   </html>
