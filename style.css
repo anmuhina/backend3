@@ -6,17 +6,6 @@ body {
     font-style: normal;
     font-size: 30px;
 }
-/*header {
-    color: black;
-    font-family: 'Times New Roman', Times, serif;
-    font-weight: bold;
-    font-style: normal;
-    font-size: 60px;
-}*/
-/*h2 {
-    color: black;
-    font-family: 'Times New Roman', Times, serif;
-}*/
 .forma {
     max-width: 960px;
     margin: auto;
@@ -27,5 +16,5 @@ body {
 }
 #data {
     font-weigth: normal;
-    font-size: 15px;
+    font-size: 20px;
 }
