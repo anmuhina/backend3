@@ -1,1 +1,43 @@
-
+<!DOCTYPE html>
+<html lang="ru">
+    <head>
+        <title>Exercise 3</title>
+    </head>
+<body>
+     <form method="POST">
+    <label><br>
+        Имя:<br>
+        <input name="name" placeholder="Введите Ваше имя">
+    </label><br>
+    <label>
+        Email:<br>
+        <input name="email" type="email" placeholder="Введите вашу почту">
+    </label><br>
+    <label>
+        Дата рождения:<br>
+        <input name="birthDate" type="date">
+    </label><br>
+    Пол:<br>
+      <label><input type="radio" checked="checked" name="sex"> Ж </label>
+      <label><input type="radio" name="sex"> М</label><br />
+    Количество конечностей:<br />
+      <label><input type="radio" checked="checked" name="limb"> 2 </label>
+      <label><input type="radio" name="limb"> 3 </label>
+      <label><input type="radio" name="limb"> 4 </label><br>
+    <label>
+        Сверхспособности:<br>
+        <select name="superpowers" multiple="multiple">
+          <option value="Значение1">Бессмертие</option>
+          <option value="Значение2">Прохождение сквозь стены</option>
+          <option value="Значение3">Левитация</option>
+        </select>
+    </label><br>
+    <label>
+        Биография:<br />
+        <textarea name="biography" placeholder="Введите текст"></textarea>
+    </label><br>
+    <label><input type="checkbox" checked="checked" name="check">С контрактом ознакомлен(а)</label><br>
+    <input type="submit" value="Отправить">
+  </form>
+  </body>
+  </html>
