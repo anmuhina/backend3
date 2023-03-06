@@ -44,7 +44,7 @@ if ($errors) {
 
 $user = 'u52811';
 $pass = '8150350';
-$db = new PDO('mysql:host=localhost;dbname=application', $user, $pass, [PDO::ATTR_PERSISTENT => true]);
+$db = new PDO('mysql:host=localhost;dbname=u52811', $user, $pass, [PDO::ATTR_PERSISTENT => true]);
 
 // Подготовленный запрос. Не именованные метки.
 try {
