@@ -17,7 +17,16 @@
     </label><br>
     <label>
         Дата рождения:<br>
-        <input id="data" name="year" type="date">
+        
+        <!--<input id="data" name="year" type="date">-->
+         <select name="year">
+         <?php 
+          for ($i = 1922; $i <= 2022; $i++) {
+          printf('<option value="%d">%d год</option>', $i, $i);
+          }
+         ?>
+        </select>
+        
     </label><br>
     Пол:<br>
       <label><input id="data" type="radio" checked="checked" name="sex">ж</label>
