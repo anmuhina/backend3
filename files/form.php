@@ -14,7 +14,7 @@
 
 
 
-<form class="forma" method="POST">
+<form action="" class="forma" method="POST">
     <label><br>
         Имя:<br>
         <input id="data" name="fio" placeholder="Введите Ваше имя">
