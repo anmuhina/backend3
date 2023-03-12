@@ -25,10 +25,10 @@ if (empty($_POST['fio'])) {
   $errors = TRUE;
 }
 
-if (empty($_POST['year']) || !is_numeric($_POST['year']) || !preg_match('/^\d+$/', $_POST['year'])) {
-  print('Введите дату рождения.<br/>');
-  $errors = TRUE;
-}
+//if (empty($_POST['year']) || !is_numeric($_POST['year']) || !preg_match('/^\d+$/', $_POST['year'])) {
+  //print('Введите дату рождения.<br/>');
+  //$errors = TRUE;
+//}
 
 
 // *************
