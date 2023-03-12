@@ -21,18 +21,47 @@ if ($_SERVER['REQUEST_METHOD'] == 'GET') {
 // Проверяем ошибки.
 $errors = FALSE;
 if (empty($_POST['fio'])) {
-  print('Заполните имя.<br/>');
+  print('Введите имя.<br/>');
   $errors = TRUE;
 }
 
 if (empty($_POST['year']) || !is_numeric($_POST['year']) || !preg_match('/^\d+$/', $_POST['year'])) {
-  print('Заполните год.<br/>');
+  print('Введите дату рождения.<br/>');
   $errors = TRUE;
 }
 
 
 // *************
 // Тут необходимо проверить правильность заполнения всех остальных полей.
+if (empty($_POST['email'])) {
+  print('Введите почту.<br/>');
+  $errors = TRUE;
+}
+
+if (empty($_POST['sex'])) {
+  print('Выберите пол.<br/>');
+  $errors = TRUE;
+}
+
+if (empty($_POST['limb'])) {
+  print('Выберите количество конечностей.<br/>');
+  $errors = TRUE;
+}
+
+if (empty($_POST['superpowers'])) {
+  print('Выберите сверхспособности.<br/>');
+  $errors = TRUE;
+}
+
+if (empty($_POST['biography'])) {
+  print('Заполните биографию.<br/>');
+  $errors = TRUE;
+}
+
+if (empty($_POST['check'])) {
+  print('Поставьте галочку "С контрактом ознакомлен(а)".<br/>');
+  $errors = TRUE;
+}
 // *************
 
 if ($errors) {
@@ -47,9 +76,33 @@ $pass = '8150350';
 $db = new PDO('mysql:host=localhost;dbname=u52811', $user, $pass, [PDO::ATTR_PERSISTENT => true]);
 
 // Подготовленный запрос. Не именованные метки.
+
+$stateCheckbox = $_POST['check'];
+
 try {
   $stmt = $db->prepare("INSERT INTO application SET name = ?");
   $stmt -> execute(['fio']);
+  
+  $stmt = $db->prepare("INSERT INTO application SET email = ?");
+  $stmt -> execute(['email']);
+  $stmt = $db->prepare("INSERT INTO application SET birth_date = ?");
+  $stmt -> execute(['year']);
+  $stmt = $db->prepare("INSERT INTO application SET sex = ?");
+  $stmt -> execute(['sex']);
+  $stmt = $db->prepare("INSERT INTO application SET amount_of_limbs = ?");
+  $stmt -> execute(['limb']);
+  $stmt = $db->prepare("INSERT INTO application SET biography = ?");
+  $stmt -> execute(['biography']);
+  //$stmt = $db->prepare("INSERT INTO application SET informed = ?");
+  //$stmt -> execute(['check']);
+  $sql = "INSERT INTO application SET informed = $stateCheckbox";
+  
+  $stmt = $db->prepare("INSERT INTO abilities SET name_of_ability = ?");
+  $stmt -> execute(['name_of_ability'=>'Бессмертие']);
+  $stmt = $db->prepare("INSERT INTO abilities SET name_of_ability = ?");
+  $stmt -> execute(['name_of_ability'=>'Прохождение сквозь стены']);
+  $stmt = $db->prepare("INSERT INTO abilities SET name_of_ability = ?");
+  $stmt -> execute(['name_of_ability'=>'Левитация']);
 }
 catch(PDOException $e){
   print('Error : ' . $e->getMessage());
