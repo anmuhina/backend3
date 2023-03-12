@@ -131,4 +131,5 @@ $stmt->execute();
 // Если ошибок при этом не видно, то необходимо настроить параметр display_errors для PHP.
 
 //header('Location: ?save=1');
+header('Location: https://github.com/anmuhina/backend3/edit/main/files/index.php');
 ?>
