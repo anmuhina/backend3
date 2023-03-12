@@ -130,6 +130,6 @@ $stmt->execute();
 // Если запись не сохраняется, но ошибок не видно, то можно закомментировать эту строку чтобы увидеть ошибку.
 // Если ошибок при этом не видно, то необходимо настроить параметр display_errors для PHP.
 
-//header('Location: ?save=1');
-header('Location: http://u52811.kubsu-dev.ru/backend3/');
+header('Location: ?save=1');
+//header('Location: http://u52811.kubsu-dev.ru/backend3/');
 ?>
