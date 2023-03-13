@@ -58,7 +58,7 @@ if (empty($_POST['biography'])) {
   $errors = TRUE;
 }
 
-if (empty($_POST['informed'])) {
+if (empty($_POST['informed']) || $_POST['informed']==0) {
   print('Поставьте галочку "С контрактом ознакомлен(а)".<br/>');
   $errors = TRUE;
 }
@@ -81,8 +81,12 @@ $db = new PDO('mysql:host=localhost;dbname=u52811', $user, $pass, [PDO::ATTR_PER
 
 try {
   $stmt = $db->prepare("INSERT INTO application SET name = ?, email = ?, birth_date = ?, sex = ?, amount_of_limbs = ?, biography = ?, informed = ?");
-  //$stmt -> execute([$_POST['fio'], $_POST['email'], $_POST['year'], $_POST['sex'], $_POST['limb'], $_POST['biography'], $_POST['check']]);
-  $stmt -> execute(['name', 'email', 'birth_date', 'sex', 'amount_of_limbs', 'biography', 'informed']);
+  $stmt -> execute([$_POST['fio'], $_POST['email'], $_POST['year'], $_POST['sex'], $_POST['limb'], $_POST['biography'], 1]);
+  if (!$stmt) {
+        print('Error : ' . $stmt->errorInfo());
+    }
+  
+  //$stmt -> execute(['name', 'email', 'birth_date', 'sex', 'amount_of_limbs', 'biography', 'informed']);
   
   //$sql = "INSERT INTO application SET informed = $stateCheckbox";
   
@@ -103,7 +107,21 @@ catch(PDOException $e) {
   exit();
 }
 
-$application_id = $db -> lastInsertId();
+$app_id = $db->lastInsertId();
+foreach ($_POST['abilities'] as $ability) {
+    try {
+        $stmt = $db->prepare("INSERT INTO abilities SET app_id = ?, name_of_ability = ?");
+        $stmt->execute([$app_id, $ability]);
+        if (!$stmt) {
+            print('Error : ' . $stmt->errorInfo());
+        }
+    } catch (PDOException $e) {
+        print('Error : ' . $e->getMessage());
+        exit();
+    }
+}
+
+/*$application_id = $db -> lastInsertId();
 foreach ($_POST['abilities'] as $ability) {
   //print($ability);
   try {
@@ -114,7 +132,7 @@ foreach ($_POST['abilities'] as $ability) {
     print('Error : ' . $e->getMessage());
     exit();
   }
-}
+}*/
 
 //  stmt - это "дескриптор состояния".
  
