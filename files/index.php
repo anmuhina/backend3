@@ -48,7 +48,7 @@ if (empty($_POST['amount_of_limbs'])) {
   $errors = TRUE;
 }
 
-if (empty($_POST['abilities'])) {
+if (empty($_POST['abilities[]'])) {
   print('Выберите сверхспособности.<br/>');
   $errors = TRUE;
 }
@@ -104,7 +104,7 @@ catch(PDOException $e) {
 }
 
 $application_id = $db -> lastInsertId();
-foreach ($_POST['abilities'] as $ability) {
+foreach ($_POST['abilities[]'] as $ability) {
   //print($ability);
   try {
     $stmt = $db->prepare("INSERT INTO abilities SET app_id = ?, name_of_ability = ?");
