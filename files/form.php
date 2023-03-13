@@ -1,4 +1,4 @@
- <form action="" class="forma" method="POST">
+ <form action="http://u52811.kubsu-dev.ru/backend3/files/index.php" class="forma" method="POST">
     <label><br>
         Имя:<br>
         <input id="data" name="name" placeholder="Введите Ваше имя">
