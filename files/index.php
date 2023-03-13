@@ -82,7 +82,7 @@ $db = new PDO('mysql:host=localhost;dbname=u52811', $user, $pass, [PDO::ATTR_PER
 try {
   $stmt = $db->prepare("INSERT INTO application SET name = ?, email = ?, birth_date = ?, sex = ?, amount_of_limbs = ?, biography = ?, informed = ?");
   //$stmt -> execute([$_POST['fio'], $_POST['email'], $_POST['year'], $_POST['sex'], $_POST['limb'], $_POST['biography'], $_POST['check']]);
-  $stmt -> execute($_POST['fio', 'email', 'year', 'sex', 'limb', 'biography', 'check']);
+  $stmt -> execute(['fio', 'email', 'year', 'sex', 'limb', 'biography', 'check']);
   
   //$sql = "INSERT INTO application SET informed = $stateCheckbox";
   
