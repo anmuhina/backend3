@@ -20,12 +20,12 @@ if ($_SERVER['REQUEST_METHOD'] == 'GET') {
 
 // Проверяем ошибки.
 $errors = FALSE;
-if (empty($_POST['fio'])) {
+if (empty($_POST['name'])) {
   print('Введите имя.<br/>');
   $errors = TRUE;
 }
 
-if (empty($_POST['year']) || !is_numeric($_POST['year']) || !preg_match('/^\d+$/', $_POST['year'])) {
+if (empty($_POST['date_of_birth']) || !is_numeric($_POST['date_of_birth']) || !preg_match('/^\d+$/', $_POST['date_of_birth'])) {
   print('Введите дату рождения.<br/>');
   $errors = TRUE;
 }
@@ -43,12 +43,12 @@ if (empty($_POST['sex'])) {
   $errors = TRUE;
 }
 
-if (empty($_POST['limb'])) {
+if (empty($_POST['amount_of_limbs'])) {
   print('Выберите количество конечностей.<br/>');
   $errors = TRUE;
 }
 
-if (empty($_POST['superpowers'])) {
+if (empty($_POST['abilities'])) {
   print('Выберите сверхспособности.<br/>');
   $errors = TRUE;
 }
@@ -58,7 +58,7 @@ if (empty($_POST['biography'])) {
   $errors = TRUE;
 }
 
-if (empty($_POST['check'])) {
+if (empty($_POST['informed'])) {
   print('Поставьте галочку "С контрактом ознакомлен(а)".<br/>');
   $errors = TRUE;
 }
@@ -82,7 +82,7 @@ $db = new PDO('mysql:host=localhost;dbname=u52811', $user, $pass, [PDO::ATTR_PER
 try {
   $stmt = $db->prepare("INSERT INTO application SET name = ?, email = ?, birth_date = ?, sex = ?, amount_of_limbs = ?, biography = ?, informed = ?");
   //$stmt -> execute([$_POST['fio'], $_POST['email'], $_POST['year'], $_POST['sex'], $_POST['limb'], $_POST['biography'], $_POST['check']]);
-  $stmt -> execute(['fio', 'email', 'year', 'sex', 'limb', 'biography', 'check']);
+  $stmt -> execute(['name', 'email', 'birth_date', 'sex', 'amount_of_limbs', 'biography', 'informed']);
   
   //$sql = "INSERT INTO application SET informed = $stateCheckbox";
   
@@ -104,11 +104,11 @@ catch(PDOException $e) {
 }
 
 $application_id = $db -> lastInsertId();
-foreach ($_POST['superpowers'] as $superpower) {
-  //print($superpower);
+foreach ($_POST['abilities'] as $ability) {
+  //print($ability);
   try {
     $stmt = $db->prepare("INSERT INTO abilities SET app_id = ?, name_of_ability = ?");
-    $stmt -> execute([$application_id, $superpower]);
+    $stmt -> execute([$application_id, $ability]);
   }
   catch(PDOException $e) {
     print('Error : ' . $e->getMessage());
