@@ -104,7 +104,7 @@ catch(PDOException $e) {
 }
 
 $application_id = $db -> lastInsertId();
-foreach ($_POST['abilities[]'] as $ability) {
+foreach ($_POST['abilities'] as $ability) {
   //print($ability);
   try {
     $stmt = $db->prepare("INSERT INTO abilities SET app_id = ?, name_of_ability = ?");
