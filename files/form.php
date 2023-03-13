@@ -20,18 +20,18 @@
         
     </label><br>
     Пол:<br>
-      <label><input id="data" type="radio" checked="checked" name="sex">ж</label>
-      <label><input id="data" type="radio" name="sex">м</label><br />
+      <label><input id="data" type="radio" checked="checked" name="sex" value="ж">Ж</label>
+      <label><input id="data" type="radio" name="sex" value="м">М</label><br />
     Количество конечностей:<br />
-      <label><input id="data" type="radio" checked="checked" name="amount_of_limbs"> 2 </label>
-      <label><input id="data" type="radio" name="amount_of_limbs"> 3 </label>
-      <label><input id="data" type="radio" name="amount_of_limbs"> 4 </label><br>
+      <label><input id="data" type="radio" checked="checked" name="amount_of_limbs" value="2"> 2 </label>
+      <label><input id="data" type="radio" name="amount_of_limbs" value="3"> 3 </label>
+      <label><input id="data" type="radio" name="amount_of_limbs" value="4"> 4 </label><br>
     <label>
         Сверхспособности:<br>
         <select id="data" name="abilities[]" multiple="multiple">
-          <option value="Значение1">Бессмертие</option>
-          <option value="Значение2">Прохождение сквозь стены</option>
-          <option value="Значение3">Левитация</option>
+          <option value="Бессмертие">Бессмертие</option>
+          <option value="Прохождение сквозь стены">Прохождение сквозь стены</option>
+          <option value="Левитация">Левитация</option>
         </select>
     </label><br>
     <label>
