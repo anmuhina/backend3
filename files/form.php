@@ -29,7 +29,6 @@
     <label>
         Сверхспособности:<br>
         <select id="data" name="superpowers[]" multiple="multiple">
-          <option disabled>Выберите сверхспособность:</option>
           <option value="Значение1">Бессмертие</option>
           <option value="Значение2">Прохождение сквозь стены</option>
           <option value="Значение3">Левитация</option>
