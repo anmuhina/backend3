@@ -1,20 +1,4 @@
-/*<form action="" method="POST">
-  <input name="fio" />
-  <select name="year">
-    <?php 
-    for ($i = 1922; $i <= 2022; $i++) {
-      printf('<option value="%d">%d год</option>', $i, $i);
-    }
-    ?>
-  </select>
-  
-  <input type="submit" value="ok" />
-</form>*/
-
-
-
-
-<form action="" class="forma" method="POST">
+ <form action="" class="forma" method="POST">
     <label><br>
         Имя:<br>
         <input id="data" name="fio" placeholder="Введите Ваше имя">
@@ -25,13 +9,15 @@
     </label><br>
     <label>
         Дата рождения:<br>
-        <select name="year">
+        
+         <select name="year">
          <?php 
           for ($i = 1922; $i <= 2022; $i++) {
           printf('<option value="%d">%d год</option>', $i, $i);
           }
          ?>
         </select>
+        
     </label><br>
     Пол:<br>
       <label><input id="data" type="radio" checked="checked" name="sex">ж</label>
@@ -56,3 +42,4 @@
     <label><input id="data" type="checkbox" checked="checked" name="check">С контрактом ознакомлен(а)</label><br>
     <input id="data" type="submit" value="Отправить">
   </form>
+    
