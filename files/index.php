@@ -82,7 +82,7 @@ $db = new PDO('mysql:host=localhost;dbname=u52811', $user, $pass,
 
 try {
   $stmt = $db->prepare("INSERT INTO application SET name = ?, email = ?, birth_date = ?, sex = ?, amount_of_limbs = ?, biography = ?, informed = ?");
-  $stmt -> execute([$_POST['fio'], $_POST['email'], $_POST['year'], $_POST['sex'], $_POST['limb'], $_POST['biography'], 1]);
+  $stmt -> execute([$_POST['name'], $_POST['email'], $_POST['birth_date'], $_POST['sex'], $_POST['amount_of_limbs'], $_POST['biography'], 1]);
   if (!$stmt) {
         print('Error : ' . $stmt->errorInfo());
     }
