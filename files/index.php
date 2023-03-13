@@ -48,7 +48,7 @@ if (empty($_POST['amount_of_limbs'])) {
   $errors = TRUE;
 }
 
-if (empty($_POST['abilities[]'])) {
+if (empty($_POST['abilities'])) {
   print('Выберите сверхспособности.<br/>');
   $errors = TRUE;
 }
