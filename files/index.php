@@ -80,8 +80,8 @@ $db = new PDO('mysql:host=localhost;dbname=u52811', $user, $pass, [PDO::ATTR_PER
 $stateCheckbox = $_POST['check'];
 
 try {
-  $stmt = $db->prepare("INSERT INTO application SET name = ?");
-  $stmt -> execute(['fio']);
+  $stmt = $db->prepare("INSERT INTO application SET name = ?, email = ?, ");
+  $stmt -> execute([$_POST['fio'], $_POST['email'], ]);
   
   $stmt = $db->prepare("INSERT INTO application SET email = ?");
   $stmt -> execute(['email']);
@@ -96,13 +96,20 @@ try {
   //$stmt = $db->prepare("INSERT INTO application SET informed = ?");
   //$stmt -> execute(['check']);
   $sql = "INSERT INTO application SET informed = $stateCheckbox";
+//$lastId = $db -> lastInsertId();
+  //$sql = "INSERT INTO link SET app_id = $lastId";
   
+ 
   $stmt = $db->prepare("INSERT INTO abilities SET name_of_ability = ?");
   $stmt -> execute(['name_of_ability'=>'Бессмертие']);
   $stmt = $db->prepare("INSERT INTO abilities SET name_of_ability = ?");
   $stmt -> execute(['name_of_ability'=>'Прохождение сквозь стены']);
   $stmt = $db->prepare("INSERT INTO abilities SET name_of_ability = ?");
   $stmt -> execute(['name_of_ability'=>'Левитация']);
+  
+  //$lastIdi = $db -> lastInsertId();
+  //$sql = "INSERT INTO link SET app_id = $lastId";
+
 }
 catch(PDOException $e){
   print('Error : ' . $e->getMessage());
