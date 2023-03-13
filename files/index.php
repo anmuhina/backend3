@@ -103,11 +103,11 @@ catch(PDOException $e) {
 }
 
 $application_id = $db -> lastInsertId();
-foreach ($_POST['abilities'] as $ability) {
-  print($ability);
+foreach ($_POST['superpowers'] as $superpower) {
+  //print($superpower);
   try {
     $stmt = $db->prepare("INSERT INTO abilities SET app_id = ?, name_of_ability = ?");
-    $stmt -> execute([$application_id, $ability]);
+    $stmt -> execute([$application_id, $superpower]);
   }
   catch(PDOException $e) {
     print('Error : ' . $e->getMessage());
