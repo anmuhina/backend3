@@ -81,7 +81,8 @@ $db = new PDO('mysql:host=localhost;dbname=u52811', $user, $pass, [PDO::ATTR_PER
 
 try {
   $stmt = $db->prepare("INSERT INTO application SET name = ?, email = ?, birth_date = ?, sex = ?, amount_of_limbs = ?, biography = ?, informed = ?");
-  $stmt -> execute([$_POST['fio'], $_POST['email'], $_POST['year'], $_POST['sex'], $_POST['limb'], $_POST['biography'], $_POST['check']]);
+  //$stmt -> execute([$_POST['fio'], $_POST['email'], $_POST['year'], $_POST['sex'], $_POST['limb'], $_POST['biography'], $_POST['check']]);
+  $stmt -> execute(['fio', 'email', 'year', 'sex', 'limb', 'biography', 'check']);
   
   //$sql = "INSERT INTO application SET informed = $stateCheckbox";
   
@@ -136,6 +137,4 @@ $stmt->execute();
 // Если запись не сохраняется, но ошибок не видно, то можно закомментировать эту строку чтобы увидеть ошибку.
 // Если ошибок при этом не видно, то необходимо настроить параметр display_errors для PHP.
 
-//header('Location: ?save=1');
-//header('Location: http://u52811.kubsu-dev.ru/backend3/');
-?>
+header('Location: ?save=1');
