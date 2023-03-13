@@ -102,11 +102,12 @@ catch(PDOException $e) {
   exit();
 }
 
-$app_id = $db -> lastInsertId();
+$application_id = $db -> lastInsertId();
 foreach ($_POST['abilities'] as $ability) {
+  print($ability);
   try {
-    $stmt = $db -> prepare("INSERT INTO abilities SET app_id = ?, name_of_ability = ?");
-    $stmt -> execute([$app_id, $ability]);
+    $stmt = $db->prepare("INSERT INTO abilities SET app_id = ?, name_of_ability = ?");
+    $stmt -> execute([$application_id, $ability]);
   }
   catch(PDOException $e) {
     print('Error : ' . $e->getMessage());
@@ -135,6 +136,6 @@ $stmt->execute();
 // Если запись не сохраняется, но ошибок не видно, то можно закомментировать эту строку чтобы увидеть ошибку.
 // Если ошибок при этом не видно, то необходимо настроить параметр display_errors для PHP.
 
-header('Location: ?save=1');
+//header('Location: ?save=1');
 //header('Location: http://u52811.kubsu-dev.ru/backend3/');
 ?>
