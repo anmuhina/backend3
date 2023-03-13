@@ -1,4 +1,4 @@
- <form action="" class="forma" method="POST">
+ <form action="https://github.com/anmuhina/backend3/blob/main/files/index.php" class="forma" method="POST">
     <label><br>
         Имя:<br>
         <input id="data" name="fio" placeholder="Введите Ваше имя">
