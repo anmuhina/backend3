@@ -10,7 +10,7 @@
     <label>
         Дата рождения:<br>
         
-         <select name="date_of_birth">
+         <select name="birth_date">
          <?php 
           for ($i = 1922; $i <= 2022; $i++) {
           printf('<option value="%d">%d год</option>', $i, $i);
