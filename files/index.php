@@ -58,7 +58,7 @@ if (empty($_POST['biography'])) {
   $errors = TRUE;
 }
 
-if (empty($_POST['informed']) || $_POST['informed']==0) {
+if (empty($_POST['informed']) || !($_POST['checkbox'] == 'on' || $_POST['checkbox'] == 1)) {
   print('Поставьте галочку "С контрактом ознакомлен(а)".<br/>');
   $errors = TRUE;
 }
@@ -156,5 +156,5 @@ $stmt->execute();
 // Если запись не сохраняется, но ошибок не видно, то можно закомментировать эту строку чтобы увидеть ошибку.
 // Если ошибок при этом не видно, то необходимо настроить параметр display_errors для PHP.
 
-//header('Location: ?save=1');
-echo "<script>window.location.href = '?save=1';</script>";
+header('Location: ?save=1');
+//echo "<script>window.location.href = '?save=1';</script>";
