@@ -77,43 +77,41 @@ $db = new PDO('mysql:host=localhost;dbname=u52811', $user, $pass, [PDO::ATTR_PER
 
 // Подготовленный запрос. Не именованные метки.
 
-$stateCheckbox = $_POST['check'];
+//$stateCheckbox = $_POST['check'];
 
 try {
-  $stmt = $db->prepare("INSERT INTO application SET name = ?, email = ?, ");
-  $stmt -> execute([$_POST['fio'], $_POST['email'], ]);
+  $stmt = $db->prepare("INSERT INTO application SET name = ?, email = ?, birth_date = ?, sex = ?, amount_of_limbs = ?, biography = ?, informed = ?");
+  $stmt -> execute([$_POST['fio'], $_POST['email'], $_POST['year'], $_POST['sex'], $_POST['limb'], $_POST['biography'], $_POST['check']]);
   
-  $stmt = $db->prepare("INSERT INTO application SET email = ?");
-  $stmt -> execute(['email']);
-  $stmt = $db->prepare("INSERT INTO application SET birth_date = ?");
-  $stmt -> execute(['year']);
-  $stmt = $db->prepare("INSERT INTO application SET sex = ?");
-  $stmt -> execute(['sex']);
-  $stmt = $db->prepare("INSERT INTO application SET amount_of_limbs = ?");
-  $stmt -> execute(['limb']);
-  $stmt = $db->prepare("INSERT INTO application SET biography = ?");
-  $stmt -> execute(['biography']);
-  //$stmt = $db->prepare("INSERT INTO application SET informed = ?");
-  //$stmt -> execute(['check']);
-  $sql = "INSERT INTO application SET informed = $stateCheckbox";
-//$lastId = $db -> lastInsertId();
-  //$sql = "INSERT INTO link SET app_id = $lastId";
+  //$sql = "INSERT INTO application SET informed = $stateCheckbox";
   
  
-  $stmt = $db->prepare("INSERT INTO abilities SET name_of_ability = ?");
-  $stmt -> execute(['name_of_ability'=>'Бессмертие']);
-  $stmt = $db->prepare("INSERT INTO abilities SET name_of_ability = ?");
-  $stmt -> execute(['name_of_ability'=>'Прохождение сквозь стены']);
-  $stmt = $db->prepare("INSERT INTO abilities SET name_of_ability = ?");
-  $stmt -> execute(['name_of_ability'=>'Левитация']);
+  //$stmt = $db->prepare("INSERT INTO abilities SET name_of_ability = ?");
+  //$stmt -> execute(['name_of_ability'=>'Бессмертие']);
+  //$stmt = $db->prepare("INSERT INTO abilities SET name_of_ability = ?");
+  //$stmt -> execute(['name_of_ability'=>'Прохождение сквозь стены']);
+  //$stmt = $db->prepare("INSERT INTO abilities SET name_of_ability = ?");
+  //$stmt -> execute(['name_of_ability'=>'Левитация']);
   
   //$lastIdi = $db -> lastInsertId();
   //$sql = "INSERT INTO link SET app_id = $lastId";
 
 }
-catch(PDOException $e){
+catch(PDOException $e) {
   print('Error : ' . $e->getMessage());
   exit();
+}
+
+$app_id = $db -> lastInsertId();
+foreach ($_POST['abilities'] as $ability) {
+  try {
+    $stmt = $db -> prepare("INSERT INTO abilities SET app_id = ?, name_of_ability = ?");
+    $stmt -> execute([$app_id, $ability]);
+  }
+  catch(PDOException $e) {
+    print('Error : ' . $e->getMessage());
+    exit();
+  }
 }
 
 //  stmt - это "дескриптор состояния".
