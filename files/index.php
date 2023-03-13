@@ -58,7 +58,7 @@ if (empty($_POST['biography'])) {
   $errors = TRUE;
 }
 
-if (empty($_POST['informed']) || !($_POST['checkbox'] == 'on' || $_POST['checkbox'] == 1)) {
+if (empty($_POST['informed']) || !($_POST['informed'] == 'on' || $_POST['informed'] == 1)) {
   print('Поставьте галочку "С контрактом ознакомлен(а)".<br/>');
   $errors = TRUE;
 }
