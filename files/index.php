@@ -25,11 +25,14 @@ if (empty($_POST['name'])) {
   $errors = TRUE;
 }
 
-if (empty($_POST['birth_date']) || !is_numeric($_POST['birth_date']) || !preg_match('/^\d+$/', $_POST['birth_date'])) {
+//if (empty($_POST['birth_date']) || !is_numeric($_POST['birth_date']) || !preg_match('/^\d+$/', $_POST['birth_date'])) {
+  //print('Введите дату рождения.<br/>');
+  //$errors = TRUE;
+//}
+if (empty($_POST['birth_date'])) {
   print('Введите дату рождения.<br/>');
   $errors = TRUE;
 }
-
 
 // *************
 // Тут необходимо проверить правильность заполнения всех остальных полей.
