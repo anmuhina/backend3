@@ -107,7 +107,6 @@ catch(PDOException $e) {
   print('Error : ' . $e->getMessage());
   exit();
 }
-}
 
 /*foreach ($_POST['abilities'] as $ability) {
   for ($i=1; $i<4; $i++) {
