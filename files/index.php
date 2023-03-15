@@ -86,6 +86,8 @@ $db = new PDO('mysql:host=localhost;dbname=u52811', $user, $pass,
 try {
   $stmt = $db->prepare("INSERT INTO application SET name = ?, email = ?, birth_date = ?, sex = ?, amount_of_limbs = ?, biography = ?, informed = ?");
   $stmt -> execute([$_POST['name'], $_POST['email'], $_POST['birth_date'], $_POST['sex'], $_POST['amount_of_limbs'], $_POST['biography'], 1]);
+  
+  
   if (!$stmt) {
         print('Error : ' . $stmt->errorInfo());
     }
@@ -98,10 +100,14 @@ catch(PDOException $e) {
 $app_id = $db->lastInsertId();
 
 
-foreach ($_POST['abilities'] as $ability) {
+$stmt = $db->prepare("INSERT INTO abilities (id, name_of_ability) VALUES (1, 'Бессмертие'), (2, 'Прохождение сквозь стены'), (3,'Левитация')");
+$stmt-> execute();
+
+/*foreach ($_POST['abilities'] as $ability) {
+  for ($i=1; $i<4; $i++) {
     try {
-        $stmt = $db->prepare("INSERT INTO abilities SET name_of_ability = ?");
-        $stmt-> execute([$ability]);
+        $stmt = $db->prepare("INSERT INTO abilities SET id = ?,name_of_ability = ?");
+        $stmt-> execute([$i, $ability]);
         if (!$stmt) {
             print('Error : ' . $stmt->errorInfo());
         }
@@ -109,12 +115,14 @@ foreach ($_POST['abilities'] as $ability) {
         print('Error : ' . $e->getMessage());
         exit();
     }
-}
-$ab_id = $db->lastInsertId();
+  }
+}*/
+
+//$ab_id = $db->lastInsertId();
 
 try {
   $stmt = $db->prepare("INSERT INTO link SET app_id = ?, ab_id = ?");
-  $stmt -> execute([$app_id, $ab_id]);
+  $stmt -> execute([$app_id, $_POST['abilities']);
   if (!$stmt) {
         print('Error : ' . $stmt->errorInfo());
     }
