@@ -100,12 +100,13 @@ catch(PDOException $e) {
 $app_id = $db->lastInsertId();
 
 try {
-$stmt = $db->prepare("INSERT INTO abilities (id, name_of_ability) VALUES (1, 'Бессмертие'), (2, 'Прохождение сквозь стены'), (3,'Левитация')");
-$stmt-> execute();
+  $stmt = $db->prepare("INSERT INTO abilities (id,name_of_ability) VALUES (10, 'Бессмертие'), (20, 'Прохождение сквозь стены'), (30, 'Левитация')");
+  $stmt-> execute();
 }
 catch(PDOException $e) {
   print('Error : ' . $e->getMessage());
   exit();
+}
 }
 
 /*foreach ($_POST['abilities'] as $ability) {
