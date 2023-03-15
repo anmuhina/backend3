@@ -125,9 +125,11 @@ catch(PDOException $e) {
 
 //$ab_id = $db->lastInsertId();
 
+
+foreach ($_POST['abilities'] as $ability) {
 try {
   $stmt = $db->prepare("INSERT INTO link SET app_id = ?, ab_id = ?");
-  $stmt -> execute([$app_id, $_POST['abilities[]']]);
+  $stmt -> execute([$app_id, $ability]);
   if (!$stmt) {
         print('Error : ' . $stmt->errorInfo());
     }
@@ -135,6 +137,7 @@ try {
 catch(PDOException $e) {
   print('Error : ' . $e->getMessage());
   exit();
+}
 }
 
 /*foreach ($_POST['abilities'] as $ability) {
