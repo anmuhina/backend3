@@ -99,11 +99,16 @@ catch(PDOException $e) {
 
 $app_id = $db->lastInsertId();
 
-$sql_abilities = "INSERT INTO abilities (id, name_of_ability) VALUES (10, 'Бессмертие'), (20, 'Прохождение сквозь стены'), (30, 'Левитация')";
-$db->query($sql_abilities);
 
-
-  //$stmt = $db->("INSERT INTO abilities (id,name_of_ability) VALUES (10, 'Бессмертие'), (20, 'Прохождение сквозь стены'), (30, 'Левитация')");
+try{
+  $stmt = $db->prepare("REPLACE INTO abilities (id,name_of_ability) VALUES (10, 'Бессмертие'), (20, 'Прохождение сквозь стены'), (30, 'Левитация')");
+  $stmt-> execute();
+}
+catch (PDOException $e) {
+        print('Error : ' . $e->getMessage());
+        exit();
+    }
+  
 
 
 /*foreach ($_POST['abilities'] as $ability) {
