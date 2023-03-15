@@ -45,7 +45,8 @@ if (empty($_POST['biography'])) {
   $errors = TRUE;
 }
 
-if (empty($_POST['informed']) || !($_POST['informed'] == 'on' || $_POST['informed'] == 1)) {
+//if (empty($_POST['informed']) || !($_POST['informed'] == 'on' || $_POST['informed'] == 1)) {
+if ($_POST['informed'])==0) {
   print('Поставьте галочку "С контрактом ознакомлен(а)".<br/>');
   $errors = TRUE;
 }
@@ -63,9 +64,6 @@ $db = new PDO('mysql:host=localhost;dbname=u52811', $user, $pass,
 try {
   $stmt = $db->prepare("INSERT INTO application SET name = ?, email = ?, birth_date = ?, sex = ?, amount_of_limbs = ?, biography = ?, informed = ?");
   $stmt -> execute([$_POST['name'], $_POST['email'], $_POST['birth_date'], $_POST['sex'], $_POST['amount_of_limbs'], $_POST['biography'], 1]);
-  /*if (!$stmt) {
-        print('Error : ' . $stmt->errorInfo());
-    }*/
 }
 catch(PDOException $e) {
   print('Error : ' . $e->getMessage());
@@ -87,9 +85,6 @@ foreach ($_POST['abilities'] as $ability) {
 try {
   $stmt = $db->prepare("INSERT INTO link SET app_id = ?, ab_id = ?");
   $stmt -> execute([$app_id, $ability]);
-  /*if (!$stmt) {
-        print('Error : ' . $stmt->errorInfo());
-    }*/
 }
 catch(PDOException $e) {
   print('Error : ' . $e->getMessage());
