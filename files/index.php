@@ -122,7 +122,7 @@ $stmt-> execute();
 
 try {
   $stmt = $db->prepare("INSERT INTO link SET app_id = ?, ab_id = ?");
-  $stmt -> execute([$app_id, $_POST['abilities']);
+  $stmt -> execute([$app_id, $_POST['abilities']]);
   if (!$stmt) {
         print('Error : ' . $stmt->errorInfo());
     }
