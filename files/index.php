@@ -89,22 +89,6 @@ try {
   if (!$stmt) {
         print('Error : ' . $stmt->errorInfo());
     }
-  
-  //$stmt -> execute(['name', 'email', 'birth_date', 'sex', 'amount_of_limbs', 'biography', 'informed']);
-  
-  //$sql = "INSERT INTO application SET informed = $stateCheckbox";
-  
- 
-  //$stmt = $db->prepare("INSERT INTO abilities SET name_of_ability = ?");
-  //$stmt -> execute(['name_of_ability'=>'Бессмертие']);
-  //$stmt = $db->prepare("INSERT INTO abilities SET name_of_ability = ?");
-  //$stmt -> execute(['name_of_ability'=>'Прохождение сквозь стены']);
-  //$stmt = $db->prepare("INSERT INTO abilities SET name_of_ability = ?");
-  //$stmt -> execute(['name_of_ability'=>'Левитация']);
-  
-  //$lastIdi = $db -> lastInsertId();
-  //$sql = "INSERT INTO link SET app_id = $lastId";
-
 }
 catch(PDOException $e) {
   print('Error : ' . $e->getMessage());
@@ -112,7 +96,35 @@ catch(PDOException $e) {
 }
 
 $app_id = $db->lastInsertId();
+
+
 foreach ($_POST['abilities'] as $ability) {
+    try {
+        $stmt = $db->prepare("INSERT INTO abilities SET name_of_ability = ?");
+        $stmt-> execute([$ability]);
+        if (!$stmt) {
+            print('Error : ' . $stmt->errorInfo());
+        }
+    } catch (PDOException $e) {
+        print('Error : ' . $e->getMessage());
+        exit();
+    }
+}
+$ab_id = $db->lastInsertId();
+
+try {
+  $stmt = $db->prepare("INSERT INTO link SET app_id = ?, ab_id = ?");
+  $stmt -> execute([$app_id, $ab_id]);
+  if (!$stmt) {
+        print('Error : ' . $stmt->errorInfo());
+    }
+}
+catch(PDOException $e) {
+  print('Error : ' . $e->getMessage());
+  exit();
+}
+
+/*foreach ($_POST['abilities'] as $ability) {
     try {
         $stmt = $db->prepare("INSERT INTO abilities SET app_id = ?, name_of_ability = ?");
         $stmt->execute([$app_id, $ability]);
@@ -123,20 +135,9 @@ foreach ($_POST['abilities'] as $ability) {
         print('Error : ' . $e->getMessage());
         exit();
     }
-}
-
-/*$application_id = $db -> lastInsertId();
-foreach ($_POST['abilities'] as $ability) {
-  //print($ability);
-  try {
-    $stmt = $db->prepare("INSERT INTO abilities SET app_id = ?, name_of_ability = ?");
-    $stmt -> execute([$application_id, $ability]);
-  }
-  catch(PDOException $e) {
-    print('Error : ' . $e->getMessage());
-    exit();
-  }
 }*/
+
+
 
 //  stmt - это "дескриптор состояния".
  
