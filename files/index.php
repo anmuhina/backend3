@@ -46,7 +46,7 @@ if (empty($_POST['biography'])) {
 }
 
 //if (empty($_POST['informed']) || !($_POST['informed'] == 'on' || $_POST['informed'] == 1)) {
-if (!($_POST['informed'] == 1)) {
+if (!($_POST['informed'] == 'on')) {
   print('Поставьте галочку "С контрактом ознакомлен(а)".<br/>');
   $errors = TRUE;
 }
