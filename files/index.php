@@ -3,8 +3,7 @@ header('Content-Type: text/html; charset=UTF-8');
 
 if ($_SERVER['REQUEST_METHOD'] == 'GET') {
   if (!empty($_GET['save'])) {
-    echo('Спасибо, результаты сохранены.');
-    //print('Спасибо, результаты сохранены.');
+    print('Спасибо, результаты сохранены.');
   }
   include('form.php');
   exit();
@@ -92,4 +91,4 @@ catch(PDOException $e) {
 }
 }
 
-header('Location: ?save=1');
+header('Location: http://u52811.kubsu-dev.ru/backend3/files/index.php?save=1');
