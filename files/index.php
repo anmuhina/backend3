@@ -25,7 +25,7 @@ if (empty($_POST['birth_date']) || !is_numeric($_POST['birth_date']) || !preg_ma
 }
 
 if (empty($_POST['email']) || !preg_match('/^((([0-9A-Za-z]{1}[-0-9A-z\.]{1,}[0-9A-Za-z]{1})|([0-9А-Яа-я]{1}[-0-9А-я\.]{1,}[0-9А-Яа-я]{1}))@([-A-Za-z]{1,}\.){1,2}[-A-Za-z]{2,})$/u', $_POST['email'])) {
-  print('Введите почту.<br/>');
+  print('Введите почту корректно.<br/>');
   $errors = TRUE;
 }
 
