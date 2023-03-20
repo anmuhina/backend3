@@ -1,0 +1,21 @@
+
+body {
+    margin:0;
+    color: black;
+    font-family: 'Times New Roman', Times, serif;
+    font-weight: bold;
+    font-style: normal;
+    font-size: 30px;
+}
+.forma {
+    max-width: 960px;
+    margin: auto;
+    background-color: rgb(251, 222, 242);
+    padding: 20px;
+    margin-bottom: 20px;
+    margin-top: 20px;
+}
+#data {
+    font-weigth: normal;
+    font-size: 20px;
+}
