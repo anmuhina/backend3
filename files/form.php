@@ -1,4 +1,7 @@
- <form action="" class="forma" method="POST">
+<head>
+        <link rel="stylesheet" href="style.css">
+</head> 
+<form action="" class="forma" method="POST">
     <label><br>
         Имя:<br>
         <input id="data" name="name" placeholder="Введите Ваше имя">
