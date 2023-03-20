@@ -2,7 +2,7 @@
         <link rel="stylesheet" href="style.css">
 </head> 
 <form action="" class="forma" method="POST">
-    <label><br>
+    <label>
         Имя:<br>
         <input id="data" name="name" placeholder="Введите Ваше имя">
     </label><br>
