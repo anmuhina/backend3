@@ -15,17 +15,17 @@ if (empty($_POST['name'])) {
   $errors = TRUE;
 }
 
-if (empty($_POST['birth_date'])) {
+if (empty($_POST['birth_date']) || !is_numeric($_POST['birth_date']) || !preg_match('/^(0?[1-9]|[12][0-9]|3[01]).(0?[1-9]|1[012]).((19|20)\d\d)$/',$_POST['birth_date'])) {
   print('Введите дату рождения.<br/>');
   $errors = TRUE;
 }
 
-if (empty($_POST['email'])) {
+if (empty($_POST['email']) || !preg_match('/^((([0-9A-Za-z]{1}[-0-9A-z\.]{1,}[0-9A-Za-z]{1})|([0-9А-Яа-я]{1}[-0-9А-я\.]{1,}[0-9А-Яа-я]{1}))@([-A-Za-z]{1,}\.){1,2}[-A-Za-z]{2,})$/u', $_POST['email'])) {
   print('Введите почту.<br/>');
   $errors = TRUE;
 }
 
-if (empty($_POST['sex'])) {
+if (empty($_POST['sex']) || !($_POST['sex']=='')) {
   print('Выберите пол.<br/>');
   $errors = TRUE;
 }
@@ -80,9 +80,11 @@ catch (PDOException $e) {
         exit();
 }
 
-foreach ($_POST['abilities'] as $ability) {
 try {
   $stmt = $db->prepare("INSERT INTO link SET app_id = ?, ab_id = ?");
+foreach ($_POST['abilities'] as $ability) {
+//try {
+  //$stmt = $db->prepare("INSERT INTO link SET app_id = ?, ab_id = ?");
   $stmt -> execute([$app_id, $ability]);
 }
 catch(PDOException $e) {
