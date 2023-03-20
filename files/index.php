@@ -15,7 +15,7 @@ if (empty($_POST['name'])) {
   $errors = TRUE;
 }
 
-if (empty($_POST['birth_date']) || !is_numeric($_POST['birth_date'])) {
+if (empty($_POST['birth_date'])) {
   print('Введите дату рождения.<br/>');
   $errors = TRUE;
 }
@@ -35,7 +35,7 @@ if (empty($_POST['amount_of_limbs']) || !is_numeric($_POST['amount_of_limbs']) |
   $errors = TRUE;
 }
 
-if (empty($_POST['abilities']) || !($_POST['abilities']=='Бессмертие' || $_POST['abilities']=='Левитация' || $_POST['abilities']=='Прохождение сквозь стены')) {
+if (empty($_POST['abilities'])) {
   print('Выберите сверхспособности.<br/>');
   $errors = TRUE;
 }
