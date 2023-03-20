@@ -82,10 +82,11 @@ catch (PDOException $e) {
 
 try {
   $stmt = $db->prepare("INSERT INTO link SET app_id = ?, ab_id = ?");
-foreach ($_POST['abilities'] as $ability) {
+  foreach ($_POST['abilities'] as $ability) {
 //try {
   //$stmt = $db->prepare("INSERT INTO link SET app_id = ?, ab_id = ?");
   $stmt -> execute([$app_id, $ability]);
+  }
 }
 catch(PDOException $e) {
   print('Error : ' . $e->getMessage());
