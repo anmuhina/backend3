@@ -19,7 +19,8 @@ body {
     font-weigth: normal;
     font-size: 15px;
 }
-sub {
+#sub {
+    font-weigth: normal;
     padding: 5px;
     font-size: 20px;
     color: white;
