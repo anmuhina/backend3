@@ -21,3 +21,6 @@ body {
     font-weigth: normal;
     font-size: 15px;
 }
+input {
+    background-color: #FFC0CB;
+}
