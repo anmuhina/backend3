@@ -25,17 +25,17 @@ if (empty($_POST['email']) || !preg_match('/^((([0-9A-Za-z]{1}[-0-9A-z\.]{1,}[0-
   $errors = TRUE;
 }
 
-if (empty($_POST['sex']) || !($_POST['sex']=='')) {
+if (empty($_POST['sex']) || !($_POST['sex']=='ж' || $_POST['sex']=='м')) {
   print('Выберите пол.<br/>');
   $errors = TRUE;
 }
 
-if (empty($_POST['amount_of_limbs'])) {
+if (empty($_POST['amount_of_limbs']) || !is_numeric($_POST['amount_of_limbs']) || ($_POST['amount_of_limbs']<2) || ($_POST['amount_of_limbs']>4)) {
   print('Выберите количество конечностей.<br/>');
   $errors = TRUE;
 }
 
-if (empty($_POST['abilities'])) {
+if (empty($_POST['abilities']) || !($_POST['abilities']==10 || $_POST['abilities']==20 || $_POST['abilities']==30)) {
   print('Выберите сверхспособности.<br/>');
   $errors = TRUE;
 }
