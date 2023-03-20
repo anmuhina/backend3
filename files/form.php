@@ -13,15 +13,15 @@
     <label>
         Дата рождения:<br>
      
-     <input id="data" name="birth_date" type="date">
+     <!--<input id="data" name="birth_date" type="date">-->
         
-         <!--<select name="birth_date">
+         <select name="birth_date">
          <?php 
           for ($i = 1922; $i <= 2022; $i++) {
           printf('<option value="%d">%d год</option>', $i, $i);
           }
          ?>
-        </select>-->
+        </select>
         
     </label><br>
     Пол:<br>
