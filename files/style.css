@@ -13,7 +13,7 @@ body {
     background-color: rgb(255, 105, 180);
     border: 4px solid #FF1493;
     border-radius: 25px;
-    padding-bottom: 20px;
+    padding: 20px;
     //margin-bottom: 20px;
     //margin-top: 20px;
 }
