@@ -25,10 +25,10 @@
         
     </label><br>
     Пол:<br>
-      <label><input id="data" type="radio" checked="checked" name="sex" value="ж">Ж</label>
+      <label><input id="data" type="radio" name="sex" value="ж">Ж</label>
       <label><input id="data" type="radio" name="sex" value="м">М</label><br />
     Количество конечностей:<br />
-      <label><input id="data" type="radio" checked="checked" name="amount_of_limbs" value="2"> 2 </label>
+      <label><input id="data" type="radio" name="amount_of_limbs" value="2"> 2 </label>
       <label><input id="data" type="radio" name="amount_of_limbs" value="3"> 3 </label>
       <label><input id="data" type="radio" name="amount_of_limbs" value="4"> 4 </label><br>
     <label>
@@ -43,7 +43,7 @@
         Биография:<br />
         <textarea id="data" name="biography" placeholder="Введите текст"></textarea>
     </label><br>
-    <label><input id="data" type="checkbox" checked="checked" name="informed">С контрактом ознакомлен(а)</label><br>
+    <label><input id="data" type="checkbox" name="informed">С контрактом ознакомлен(а)</label><br>
     <input id="sub" type="submit" value="Отправить">
   </form>
     
