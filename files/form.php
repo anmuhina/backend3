@@ -44,6 +44,6 @@
         <textarea id="data" name="biography" placeholder="Введите текст"></textarea>
     </label><br>
     <label><input id="data" type="checkbox" checked="checked" name="informed">С контрактом ознакомлен(а)</label><br>
-    <input id="data" type="submit" value="Отправить">
+    <input id="data" class="sub" type="submit" value="Отправить">
   </form>
     
