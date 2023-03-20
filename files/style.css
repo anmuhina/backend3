@@ -33,8 +33,7 @@ body {
     }
     .forma {
         width: 90%;
-        border-radius: 5px;
-        padding: 10px;
+        border-radius: 10px;
     }
     #data {
         font-size: 30px;
