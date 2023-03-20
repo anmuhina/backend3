@@ -21,3 +21,10 @@ body {
     font-weigth: normal;
     font-size: 15px;
 }
+.sub {
+    font-size:25px;
+    border-radius: 10px;
+    padding: 10px;
+    background-color: #C71585;
+    color: white;
+}
