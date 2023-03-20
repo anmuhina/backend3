@@ -15,8 +15,12 @@ if (empty($_POST['name'])) {
   $errors = TRUE;
 }
 
-if (empty($_POST['birth_date'])) {
-  print('Введите дату рождения.<br/>');
+//if (empty($_POST['birth_date'])) {
+  //print('Введите дату рождения.<br/>');
+  //$errors = TRUE;
+//}
+if (empty($_POST['birth_date']) || !is_numeric($_POST['birth_date']) || !preg_match('/^\d+$/', $_POST['birth_date'])) {
+  print('Заполните год.<br/>');
   $errors = TRUE;
 }
 
