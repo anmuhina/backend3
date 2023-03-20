@@ -27,3 +27,20 @@ body {
     margin-top: 10px;
     background-color: #FF1493;
 }
+@media screen and (max-width: 991px) {
+    body {
+        font-size: 40px;
+    }
+    .forma {
+        width: 90%;
+        border-radius: 5px;
+        padding: 10px;
+    }
+    #data {
+        font-size: 30px;
+    }
+    #sub {
+        font-size: 35px;
+        margin-top: 5px;
+    }
+}
