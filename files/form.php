@@ -12,17 +12,13 @@
     </label><br>
     <label>
         Дата рождения:<br>
-     
-     <!--<input id="data" name="birth_date" type="date">-->
-        
          <select id="data" name="birth_date">
          <?php 
           for ($i = 1922; $i <= 2022; $i++) {
           printf('<option value="%d">%d год</option>', $i, $i);
           }
          ?>
-        </select>
-        
+        </select>  
     </label><br>
     Пол:<br>
       <label><input id="data" type="radio" name="sex" value="ж">Ж</label>
@@ -34,9 +30,9 @@
     <label>
         Сверхспособности:<br>
         <select id="data" name="abilities[]" multiple="multiple">
-          <option value="Бессмертие">Бессмертие</option>
-          <option value="Прохождение сквозь стены">Прохождение сквозь стены</option>
-          <option value="Левитация">Левитация</option>
+          <option value="10">Бессмертие</option>
+          <option value="20">Прохождение сквозь стены</option>
+          <option value="30">Левитация</option>
         </select>
     </label><br>
     <label>
