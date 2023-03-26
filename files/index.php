@@ -15,10 +15,6 @@ if (empty($_POST['name'])) {
   $errors = TRUE;
 }
 
-//if (empty($_POST['birth_date'])) {
-  //print('Введите дату рождения.<br/>');
-  //$errors = TRUE;
-//}
 if (empty($_POST['birth_date']) || !is_numeric($_POST['birth_date']) || !preg_match('/^\d+$/', $_POST['birth_date'])) {
   print('Заполните год.<br/>');
   $errors = TRUE;
@@ -98,5 +94,5 @@ catch(PDOException $e) {
 }
 //}
 
-//header('Location: ?save=1');
-header('Location: http://u52811.kubsu-dev.ru/backend3/files/file1.html');
+header('Location: ?save=1');
+//header('Location: http://u52811.kubsu-dev.ru/backend3/files/file1.html');
