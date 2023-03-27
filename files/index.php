@@ -94,19 +94,27 @@ catch (PDOException $e) {
         exit();
 }
 
+//try {
+  //$stmt = $db->prepare("INSERT INTO link SET app_id = ?, ab_id = ?");
+  //foreach ($_POST['abilities'] as $ability) {
+  //$stmt -> execute([$app_id, $ability]);
+  //}
+//}
 try {
   $stmt = $db->prepare("INSERT INTO link SET app_id = ?, ab_id = ?");
   foreach ($_POST['abilities'] as $ability) {
-  //try {
-  //$stmt = $db->prepare("INSERT INTO link SET app_id = ?, ab_id = ?");
-  $stmt -> execute([$app_id, $ability]);
+    if ($ability=='Бессмертие')
+    {$stmt -> execute([$app_id, 10]);}
+    else if ($ability=='Прохождение сквозь стены')
+    {$stmt -> execute([$app_id, 20]);}
+    else if ($ability=='Левитация')
+    {$stmt -> execute([$app_id, 30]);}
   }
 }
 catch(PDOException $e) {
   print('Error : ' . $e->getMessage());
   exit();
 }
-//}
 
 header('Location: ?save=1');
 //header('Location: http://u52811.kubsu-dev.ru/backend3/files/file1.html');
