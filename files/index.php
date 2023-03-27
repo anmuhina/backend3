@@ -10,7 +10,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'GET') {
 }
 
 $errors = FALSE;
-if (empty($_POST['name']) || !preg_match('/^(\s*[a-zA-Z\'\-]+|[а-яА-ЯёЁ\'\-]+\s*)$/u', $_POST['name'])) {
+if (empty($_POST['name']) || !preg_match('/^([a-zA-Z\'\-]+|[а-яА-ЯёЁ\'\-]+\s*)$/u', $_POST['name'])) {
   print('Введите имя корректно.<br/>');
   $errors = TRUE;
 }
