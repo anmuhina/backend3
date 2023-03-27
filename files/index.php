@@ -11,7 +11,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'GET') {
 
 $errors = FALSE;
 if (empty($_POST['name']) || !preg_match('/^\s*[a-zA-Zа-яА-Я]+\s*$/', $_POST['name'])) {
-  print('Введите имя.<br/>');
+  print('Введите имя корректно.<br/>');
   $errors = TRUE;
 }
 
